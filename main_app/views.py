@@ -1,17 +1,18 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .models import Crystal
 
-class Crystal:
-    def __init__(self, name, color, description):
-        self.name = name
-        self.color = color
-        self.description = description
-        
+class CrystalCreate(CreateView):
+  model = Crystal
+  fields = '__all__'   
 
-crystals = [
-    Crystal('Garnet', 'dark red', 'Montana and Idaho'),
-    Crystal('Lapis lazuli', 'rich blue hues', 'Afghanistan'),
-    Crystal('Onyx', 'black', 'Mexico')
-]
+class CrystalUpdate(UpdateView):
+  model=Crystal
+  fields=['color', 'description']
+
+class CrystalDelete(DeleteView):
+  model=Crystal
+  success_url='/crystals/'
 
 # Create your views here.
 def home(request):
@@ -21,4 +22,9 @@ def about(request):
     return render(request, 'about.html')
 
 def crystals_index(request):
+    crystals = Crystal.objects.all()
     return render(request, 'crystals/index.html', {'crystals': crystals })
+
+def crystals_detail(request, crystal_id):
+  crystal = Crystal.objects.get(id=crystal_id)
+  return render(request, 'crystals/detail.html', { 'crystal': crystal })

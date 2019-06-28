@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Crystal Details</h1>
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ crystal.name }}</span>
+    <p>Color: {{ crystal.color }}</p>
+    <p>Description: {{ crystal.description }}</p>
+  </div>
+  <div class="card-action">
+    <a href="{% url 'crystals_update' crystal.id %}">Edit</a>
+    <a href="{% url 'crystals_delete' crystal.id %}">Delete</a>
+  </div>
+</div>
+</div>
+
+{% endblock %}
