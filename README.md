@@ -17,6 +17,7 @@ Technologies Used:
 * CSS
 * Authentication (via Django)
 * Deployed via Heroku
+(https://myfavoritecrystals.herokuapp.com/)
 
 Screenshots of Site
 
