@@ -9,18 +9,26 @@
     <title>My Favorite Crystals</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
-<body>
+<body style="background-color: lavender;">
     <header class="navbar-fixed">
-        <nav>
+        <nav class="purple darken-4">
             <div class="nav-wrapper">
                 <ul>
                     <li><a href="/" class="left brand-logo">&nbsp;&nbsp;My Favorite Crystals</a></li>
                 </ul>
                 <ul class="right">
-                    <li><a href="{% url 'crystals_create' %}">Add a Crystal</a></li>
-                    <li><a href="{% url 'about' %}">About</a></li>
-                    <li><a href="{% url 'index' %}">View All My Crystals</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'lores_create' %}">Add Crystal Lore</a></li>
+                        <li><a href="{% url 'lores_index' %}">View Crystal Folklore</a></li>
+                        <li><a href="{% url 'crystals_create' %}">Add a Crystal</a></li>
+                        <li><a href="{% url 'index' %}">View All Crystals</a></li>
+                        <li><a href="{% url 'logout' %}">Log Out</a></li>
+                    {% else %}
+                        <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                        <li><a href="{% url 'login' %}">Log In</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
@@ -29,8 +37,8 @@
         {% block content %}
         {% endblock %}
     </main>
-  	 <footer class="page-footer">
+  	 <footer class="page-footer purple darken-4">
        <div class="right">All Rights Reserved, &copy; 2019 My Favorite Crystals &nbsp;</div>
     </footer>
-</body>
+</body> 
 </html>

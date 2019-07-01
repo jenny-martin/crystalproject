@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 
-<h1>Home</h1>
+<h1>All About Healing Crystals</h1>
+<hr />
+
+<div>
+   <img class="responsive-img card-panel" style="height:570px; width:570px;" src="{% static 'images/krystal-ng-PrQqQVPzmlw-unsplash.jpg' %}" alt="crystal"  />
+</div>
+
+<h4>"Crystals are living beings at the beginning of creation. All things have a frequency and a vibration." – Nikola Tesla
+</h4>
+
+<div>
+    <img class="responsive-img card-panel" src=  "{% static 'images/crystalsnh.jpg' alt='crystals image' %}" />
+    
+</div>
+
+<p>For educational purposes only!</p>
 
 {% endblock %}

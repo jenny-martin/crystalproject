@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Crystal Folklore List</h1>
+
+{% for lore in lore_list %}
+  <a href="{% url 'lores_detail' lore.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ lore.lore }}</span>
+        </div>
+    </div>
+  </a>
+{% endfor %}
+
+{% endblock %}
