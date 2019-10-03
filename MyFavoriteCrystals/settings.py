@@ -25,7 +25,7 @@ SECRET_KEY = '_@sj5aksjosr1whe$gruqw9nb#t9!h@4t99ybwa_w28&^*dy+7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'https://myfavoritecrystals.herokuapp.com/']
 
 
 # Application definition
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'MyFavoriteCrystals.wsgi.application'
+WSGI_APPLICATION = 'myfavoritecrystals.wsgi.application'
 
 
 # Database
